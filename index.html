@@ -1,0 +1,257 @@
+<html>
+    <style>
+        body {
+          background-image: url('body_bg.jpg');
+        }
+        </style>
+            <style>
+                html, body {
+                min-height: 100%;
+                }
+                h1,h4 {
+                    color: blue;
+                }
+                body, div, form, input, select { 
+                padding: 0;
+                margin: 0;
+                outline: none;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                color: #666;
+                line-height: 22px;
+                }
+                h1, h4 {
+                margin: 15px 0 4px;
+                font-weight: 400;
+                }
+                h4 {
+                margin: 20px 0 4px;
+                font-weight: 400;
+                }
+                span {
+                color: red;
+                }
+                .small {
+                font-size: 10px;
+                line-height: 18px;
+                }
+                .testbox {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: inherit;
+                padding: 3px;
+                }
+                form {
+                width: 100%;
+                padding: 20px;
+                 
+                }
+                input {
+                width: calc(50% - 5px);
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                vertical-align: middle;
+                }
+                input:hover, textarea:hover, select:hover {
+                outline: none;
+                border: 1px solid #095484;
+                background: #e6eef7;
+                }
+                .title-block select, .title-block input {
+                margin-bottom: 10px;
+                }
+                select {
+                padding: 7px 0;
+                border-radius: 3px;
+                border: 1px solid #ccc;
+                background:white;
+                }
+                select, table {
+                width: 100%;
+                }
+                option {
+                background: #fff;
+                }
+                .day-visited, .time-visited {
+                position: relative;
+                }
+                input[type="date"]::-webkit-inner-spin-button {
+                display: none;
+                }
+                input[type="time"]::-webkit-inner-spin-button {
+                margin: 2px 22px 0 0;
+                }
+                .day-visited i, .time-visited i, input[type="date"]::-webkit-calendar-picker-indicator {
+                position: absolute;
+                top: 8px;
+                font-size: 20px;
+                }
+                .day-visited i, .time-visited i {
+                right: 5px;
+                z-index: 1;
+                color: #a9a9a9;
+                }
+                [type="date"]::-webkit-calendar-picker-indicator {
+                right: 0;
+                z-index: 2;
+                opacity: 0;
+                }
+                .question-answer label {
+                display: block;
+                padding: 0 20px 10px 0;
+                }
+                .question-answer input {
+                width: auto;
+                margin-top: -2px;
+                }
+                
+                th, td {
+                width: 18%;
+                padding: 15px 0;
+                border-bottom: 1px solid #ccc;
+                text-align: left;
+                vertical-align: unset;
+                line-height: 18px;
+                font-weight: 400;
+                word-break: break-all;
+                }
+                .first-col {
+                width: 25%;
+                text-align: left;
+                }
+                textarea {
+                width: calc(100% - 6px);
+                }
+                .btn-block {
+                margin-top: 20px;
+                text-align: center;
+                }
+                button {
+                width: 150px;
+                padding: 10px;
+                border: none;
+                -webkit-border-radius: 5px; 
+                -moz-border-radius: 5px; 
+                border-radius: 5px; 
+                background-color: #095484;
+                font-size: 16px;
+                color: #fff;
+                cursor: pointer;
+                }
+                button:hover {
+                background-color: #0666a3;
+                }
+                @media (min-width: 568px) {
+                .title-block {
+                display: flex;
+                justify-content: space-between;
+                }
+                .title-block select {
+                width: 30%;
+                margin-bottom: 0;
+                }
+                .title-block input {
+                width: 31%;
+                margin-bottom: 0;
+                }
+                th, td {
+                word-break: keep-all;
+                }
+                }
+                
+              </style>
+<body>
+    
+    <img src="../static/abc_company.png" alt="ABC company" style="width:200px;height:128px;">
+
+    <center>
+        <h1><b>Check your loan status here!</b></h1>
+    </center>
+<div class="testbox">
+      <form action="{{url_for('predict')}}" method="post">
+      
+        <table>
+        <tr>
+        <td>Gender<span>*</span></td>
+        
+        <td><input type="radio" id="female" name="gender" value=0>Female</td>
+        <td><input type="radio" id="male" name="gender" value=1 checked="checked">Male</td>
+        </tr>
+        
+        <tr>
+        <td>Marital status<span>*</span></h4></td>
+        
+        <td><input type="radio" id="married_yes" name="married" value=1 checked="checked">Married</td>
+       <td><input type="radio" id="married_no" name="married" value=0>Unmarried</td>
+       </tr>
+       
+        <tr>
+        <td>Education<span>*</span></td>
+        
+        <td><input type="radio" id="graduate" name="education" value=0 checked="checked">Graduate</td>
+        <td><input type="radio" id="not_graduate" name="education" value=1>Not a graduate</td>
+        </tr>
+        
+        <tr>
+        <td>Employement<span>*</span></td>
+        <td>
+        <input type="radio" id="selfEmployed_yes" name="self_employed" value=1 checked="checked">Self employed
+        </td>
+        <td>
+        <input type="radio" id="selfEmployed_no" name="self_employed" value=0>Not self employed
+        </td>
+        </tr>
+        
+        <tr>
+        <td>Credit history<span>*</span></td>
+        <td>
+        <input type="radio" id="creditHistory_yes" name="credit_History" value=1 checked="checked">Meets guidelines
+        </td>
+        <td>
+        <input type="radio" id="creditHistory_no" name="credit_History" value=0>Does not meet guidelines
+        </td>
+        </tr>
+        
+        <tr>
+        <td>property area<span>*</span></td>
+        <td>
+        <select name="property_area" id="property_area">
+        
+            <option value=0>Rural</option>
+            <option value=1>Semi urban</option>
+            <option value=2 selected>Urban</option>
+                        
+        </select>
+        </td>
+        
+        <tr>
+        <td>Income<span>*</span></td>
+        <div>
+        <td><input type="text" name="applicantIncome" placeholder="Applicant Income" required></input></td>
+        
+        <td><input type="text" name="coapplicantIncome" placeholder="Coapplicant Income" required></input></td>
+        </div>
+        </tr>
+        
+        <tr>
+        <td>Loan<span>*</span></td>
+        <div>
+        <td><input type="text" name="loan_Amount" placeholder="Loan amount in thousands" required></input></td>
+        
+        <td><input type="text" name="loan_Amount_Term" placeholder="Term of a loan in months" required></input>
+        </td>
+        </div>
+        </tr>
+        </table>
+        <div class="btn-block">
+          <button type="submit" href="/">Predict</button>
+<button type="reset">Reset</button>
+        </div>
+      </form>
+      </table>
+    </div>
+    <center><h2>{{prediction_text}}</h2></center>
+  </body>
+</html>
